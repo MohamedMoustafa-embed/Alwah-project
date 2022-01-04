@@ -1,0 +1,20 @@
+Partlist exported from H:/مشروع الواح/PCB/untitled.sch at 10/12/2020 12:45 PM
+
+Qty Value                Device               Package              Parts                           Description                                  MF MPN OC_FARNELL OC_NEWARK POPULARITY
+1                        CAPACITOR            C025-025X050         U$5                                                                                                                
+1                        CAP_POL              E3,5-8               U$4                                                                                                                
+1                        CON_JACK             DCJ0303              J1                              DC POWER JACK                                       unknown    unknown             
+1                        PINHD-1X2            1X02                 SPEAKER                         PIN HEADER                                                                         
+1                        PINHD-1X9            1X09                 JP1                             PIN HEADER                                                                         
+1                        XTAL/S               QS                   Q1                              CRYSTAL                                                                  59        
+4   1.5k                 RES-7                0204/7               1.5K, 100OHM2, 100OHM3, 100OHM4                                                                                    
+1   1N4446               1N4446               DO35-10              D2                              DIODE                                                                    2         
+1   ARDUINO_NANO         ARDUINO_NANO         NANO                 U$1                             Arduino Nano                                                                       
+1   DC-DC-STEP-UP-MT3608 DC-DC-STEP-UP-MT3608 DC-DC-STEP-UP-MT3608 U$3                             DC/DC Step-Up Regulator based on MT3608 chip                                       
+1   EAR-PHONE-SOCKET     EAR-PHONE-SOCKET     EAR-PHONE-SOCKET     U$7                                                                                                                
+1   LITHIUM_CHARGER_2A   LITHIUM_CHARGER_2A   LITHIUM-CHARGER-1A   U$6                                                                                                                
+1   MEGA8-P              MEGA8-P              DIL28-3              IC1                             MICROCONTROLLER                                     unknown    unknown   17        
+1   MP3_MODULE           MP3_MODULE           MP3_MODULE           U$2                                                                                                                
+1   MSF6                 MSF6                 MSF6                 ST1                             MSF CONNECTOR                                       unknown    unknown   0         
+1   RES-7                RES-7                0204/7               100OHM                                                                                                             
+1   USB-A-H              USB-A-H              USB-A-H              J2                              USB Connectors                                                                     

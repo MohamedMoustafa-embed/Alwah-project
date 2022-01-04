@@ -1,0 +1,711 @@
+
+AVR software atmega8A ADC and MP3.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003c2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000c  00800060  000003c2  00000456  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  0080006c  0080006c  00000462  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000462  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000494  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000e0  00000000  00000000  000004d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001067  00000000  00000000  000005b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000006bb  00000000  00000000  00001617  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000079b  00000000  00000000  00001cd2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000208  00000000  00000000  00002470  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000526  00000000  00000000  00002678  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000009c0  00000000  00000000  00002b9e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000d0  00000000  00000000  0000355e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	2c c0       	rjmp	.+88     	; 0x5c <__bad_interrupt>
+   4:	2b c0       	rjmp	.+86     	; 0x5c <__bad_interrupt>
+   6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
+   8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
+  12:	24 c0       	rjmp	.+72     	; 0x5c <__bad_interrupt>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	22 c0       	rjmp	.+68     	; 0x5c <__bad_interrupt>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
+  1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e2 ec       	ldi	r30, 0xC2	; 194
+  3a:	f3 e0       	ldi	r31, 0x03	; 3
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+  42:	ac 36       	cpi	r26, 0x6C	; 108
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <__SP_H__>
+
+00000048 <__do_clear_bss>:
+  48:	20 e0       	ldi	r18, 0x00	; 0
+  4a:	ac e6       	ldi	r26, 0x6C	; 108
+  4c:	b0 e0       	ldi	r27, 0x00	; 0
+  4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
+
+00000050 <.do_clear_bss_loop>:
+  50:	1d 92       	st	X+, r1
+
+00000052 <.do_clear_bss_start>:
+  52:	ae 36       	cpi	r26, 0x6E	; 110
+  54:	b2 07       	cpc	r27, r18
+  56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
+  58:	62 d1       	rcall	.+708    	; 0x31e <main>
+  5a:	b1 c1       	rjmp	.+866    	; 0x3be <_exit>
+
+0000005c <__bad_interrupt>:
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <USART_Init>:
+void sleep(void){
+	sendStack(0x0A,0x00,0x00);	
+}
+void reset(void)
+{
+	sendStack(0x0C,0x00,0x00);
+  5e:	90 bd       	out	0x20, r25	; 32
+  60:	89 b9       	out	0x09, r24	; 9
+  62:	88 e1       	ldi	r24, 0x18	; 24
+  64:	8a b9       	out	0x0a, r24	; 10
+  66:	86 e8       	ldi	r24, 0x86	; 134
+  68:	80 bd       	out	0x20, r24	; 32
+  6a:	08 95       	ret
+
+0000006c <USART_Transmit>:
+  6c:	5d 9b       	sbis	0x0b, 5	; 11
+  6e:	fe cf       	rjmp	.-4      	; 0x6c <USART_Transmit>
+  70:	8c b9       	out	0x0c, r24	; 12
+  72:	08 95       	ret
+
+00000074 <analogRead>:
+  74:	37 9a       	sbi	0x06, 7	; 6
+  76:	96 b1       	in	r25, 0x06	; 6
+  78:	93 60       	ori	r25, 0x03	; 3
+  7a:	96 b9       	out	0x06, r25	; 6
+  7c:	3d 9a       	sbi	0x07, 5	; 7
+  7e:	87 b9       	out	0x07, r24	; 7
+  80:	36 9a       	sbi	0x06, 6	; 6
+  82:	34 9b       	sbis	0x06, 4	; 6
+  84:	fe cf       	rjmp	.-4      	; 0x82 <analogRead+0xe>
+  86:	84 b1       	in	r24, 0x04	; 4
+  88:	95 b1       	in	r25, 0x05	; 5
+  8a:	08 95       	ret
+
+0000008c <analogReadacurecy>:
+  8c:	0f 93       	push	r16
+  8e:	1f 93       	push	r17
+  90:	cf 93       	push	r28
+  92:	c8 2f       	mov	r28, r24
+  94:	ef df       	rcall	.-34     	; 0x74 <analogRead>
+  96:	8c 01       	movw	r16, r24
+  98:	8c 2f       	mov	r24, r28
+  9a:	ec df       	rcall	.-40     	; 0x74 <analogRead>
+  9c:	8c 2f       	mov	r24, r28
+  9e:	ea df       	rcall	.-44     	; 0x74 <analogRead>
+  a0:	01 3a       	cpi	r16, 0xA1	; 161
+  a2:	11 05       	cpc	r17, r1
+  a4:	10 f4       	brcc	.+4      	; 0xaa <analogReadacurecy+0x1e>
+  a6:	80 e0       	ldi	r24, 0x00	; 0
+  a8:	90 e0       	ldi	r25, 0x00	; 0
+  aa:	cf 91       	pop	r28
+  ac:	1f 91       	pop	r17
+  ae:	0f 91       	pop	r16
+  b0:	08 95       	ret
+
+000000b2 <sendStack>:
+  b2:	0f 93       	push	r16
+  b4:	1f 93       	push	r17
+  b6:	cf 93       	push	r28
+  b8:	df 93       	push	r29
+  ba:	28 2f       	mov	r18, r24
+  bc:	30 e0       	ldi	r19, 0x00	; 0
+  be:	2b 5f       	subi	r18, 0xFB	; 251
+  c0:	3e 4f       	sbci	r19, 0xFE	; 254
+  c2:	26 0f       	add	r18, r22
+  c4:	31 1d       	adc	r19, r1
+  c6:	24 0f       	add	r18, r20
+  c8:	31 1d       	adc	r19, r1
+  ca:	31 95       	neg	r19
+  cc:	21 95       	neg	r18
+  ce:	31 09       	sbc	r19, r1
+  d0:	e1 e6       	ldi	r30, 0x61	; 97
+  d2:	f0 e0       	ldi	r31, 0x00	; 0
+  d4:	83 83       	std	Z+3, r24	; 0x03
+  d6:	65 83       	std	Z+5, r22	; 0x05
+  d8:	46 83       	std	Z+6, r20	; 0x06
+  da:	37 83       	std	Z+7, r19	; 0x07
+  dc:	20 87       	std	Z+8, r18	; 0x08
+  de:	ef 01       	movw	r28, r30
+  e0:	0b e6       	ldi	r16, 0x6B	; 107
+  e2:	10 e0       	ldi	r17, 0x00	; 0
+  e4:	89 91       	ld	r24, Y+
+  e6:	c2 df       	rcall	.-124    	; 0x6c <USART_Transmit>
+  e8:	c0 17       	cp	r28, r16
+  ea:	d1 07       	cpc	r29, r17
+  ec:	d9 f7       	brne	.-10     	; 0xe4 <sendStack+0x32>
+  ee:	df 91       	pop	r29
+  f0:	cf 91       	pop	r28
+  f2:	1f 91       	pop	r17
+  f4:	0f 91       	pop	r16
+  f6:	08 95       	ret
+
+000000f8 <playTrack>:
+  f8:	46 2f       	mov	r20, r22
+  fa:	68 2f       	mov	r22, r24
+  fc:	8f e0       	ldi	r24, 0x0F	; 15
+  fe:	d9 df       	rcall	.-78     	; 0xb2 <sendStack>
+ 100:	08 95       	ret
+
+00000102 <play>:
+ 102:	40 e0       	ldi	r20, 0x00	; 0
+ 104:	60 e0       	ldi	r22, 0x00	; 0
+ 106:	8d e0       	ldi	r24, 0x0D	; 13
+ 108:	d4 df       	rcall	.-88     	; 0xb2 <sendStack>
+ 10a:	08 95       	ret
+
+0000010c <pause>:
+ 10c:	40 e0       	ldi	r20, 0x00	; 0
+ 10e:	60 e0       	ldi	r22, 0x00	; 0
+ 110:	8e e0       	ldi	r24, 0x0E	; 14
+ 112:	cf df       	rcall	.-98     	; 0xb2 <sendStack>
+ 114:	08 95       	ret
+
+00000116 <volume>:
+ 116:	cf 93       	push	r28
+ 118:	85 37       	cpi	r24, 0x75	; 117
+ 11a:	81 f4       	brne	.+32     	; 0x13c <volume+0x26>
+ 11c:	c0 91 60 00 	lds	r28, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 120:	4c 2f       	mov	r20, r28
+ 122:	60 e0       	ldi	r22, 0x00	; 0
+ 124:	86 e0       	ldi	r24, 0x06	; 6
+ 126:	c5 df       	rcall	.-118    	; 0xb2 <sendStack>
+ 128:	cf 5f       	subi	r28, 0xFF	; 255
+ 12a:	cf 31       	cpi	r28, 0x1F	; 31
+ 12c:	18 f4       	brcc	.+6      	; 0x134 <volume+0x1e>
+ 12e:	c0 93 60 00 	sts	0x0060, r28	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 132:	14 c0       	rjmp	.+40     	; 0x15c <volume+0x46>
+ 134:	8e e1       	ldi	r24, 0x1E	; 30
+ 136:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 13a:	10 c0       	rjmp	.+32     	; 0x15c <volume+0x46>
+ 13c:	84 36       	cpi	r24, 0x64	; 100
+ 13e:	71 f4       	brne	.+28     	; 0x15c <volume+0x46>
+ 140:	c0 91 60 00 	lds	r28, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 144:	4c 2f       	mov	r20, r28
+ 146:	60 e0       	ldi	r22, 0x00	; 0
+ 148:	86 e0       	ldi	r24, 0x06	; 6
+ 14a:	b3 df       	rcall	.-154    	; 0xb2 <sendStack>
+ 14c:	c1 50       	subi	r28, 0x01	; 1
+ 14e:	19 f0       	breq	.+6      	; 0x156 <volume+0x40>
+ 150:	c0 93 60 00 	sts	0x0060, r28	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 154:	03 c0       	rjmp	.+6      	; 0x15c <volume+0x46>
+ 156:	81 e0       	ldi	r24, 0x01	; 1
+ 158:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 15c:	87 ea       	ldi	r24, 0xA7	; 167
+ 15e:	91 e6       	ldi	r25, 0x61	; 97
+ 160:	01 97       	sbiw	r24, 0x01	; 1
+ 162:	f1 f7       	brne	.-4      	; 0x160 <volume+0x4a>
+ 164:	00 c0       	rjmp	.+0      	; 0x166 <volume+0x50>
+ 166:	00 00       	nop
+ 168:	cf 91       	pop	r28
+ 16a:	08 95       	ret
+
+0000016c <loopCurrent_on>:
+ 16c:	40 e0       	ldi	r20, 0x00	; 0
+ 16e:	60 e0       	ldi	r22, 0x00	; 0
+ 170:	89 e1       	ldi	r24, 0x19	; 25
+ 172:	9f df       	rcall	.-194    	; 0xb2 <sendStack>
+ 174:	08 95       	ret
+
+00000176 <loopCurrent_off>:
+ 176:	41 e0       	ldi	r20, 0x01	; 1
+ 178:	60 e0       	ldi	r22, 0x00	; 0
+ 17a:	89 e1       	ldi	r24, 0x19	; 25
+ 17c:	9a df       	rcall	.-204    	; 0xb2 <sendStack>
+ 17e:	08 95       	ret
+
+00000180 <enableTrackButtons>:
+}
+void enableTrackButtons (uint8_t folder){//write number of folder in SD card related to current Board????
+ 180:	cf 93       	push	r28
+ 182:	c8 2f       	mov	r28, r24
+	 uint16_t  Track_Pin = analogReadacurecy(1); 	// connected to AD1 pin in ATmega8A
+ 184:	81 e0       	ldi	r24, 0x01	; 1
+ 186:	82 df       	rcall	.-252    	; 0x8c <analogReadacurecy>
+
+	//first 6 conditions for first 6 tracks in SD card and for full AYA???
+	
+	if ((Track_Pin<=920)&&(Track_Pin>=882))//El_Basmalla
+ 188:	9c 01       	movw	r18, r24
+ 18a:	22 57       	subi	r18, 0x72	; 114
+ 18c:	33 40       	sbci	r19, 0x03	; 3
+ 18e:	27 32       	cpi	r18, 0x27	; 39
+ 190:	31 05       	cpc	r19, r1
+ 192:	20 f4       	brcc	.+8      	; 0x19c <enableTrackButtons+0x1c>
+	{//in the first folder first track
+		playTrack(0x01,0x01);
+ 194:	61 e0       	ldi	r22, 0x01	; 1
+ 196:	81 e0       	ldi	r24, 0x01	; 1
+ 198:	af df       	rcall	.-162    	; 0xf8 <playTrack>
+ 19a:	73 c0       	rjmp	.+230    	; 0x282 <enableTrackButtons+0x102>
+	} 
+	else if (Track_Pin==1023)// All of Surah.
+ 19c:	8f 3f       	cpi	r24, 0xFF	; 255
+ 19e:	23 e0       	ldi	r18, 0x03	; 3
+ 1a0:	92 07       	cpc	r25, r18
+ 1a2:	21 f4       	brne	.+8      	; 0x1ac <enableTrackButtons+0x2c>
+	{
+		playTrack(folder,0x01);
+ 1a4:	61 e0       	ldi	r22, 0x01	; 1
+ 1a6:	8c 2f       	mov	r24, r28
+ 1a8:	a7 df       	rcall	.-178    	; 0xf8 <playTrack>
+ 1aa:	6b c0       	rjmp	.+214    	; 0x282 <enableTrackButtons+0x102>
+	}
+	//_______AYAT___________
+	else if ((Track_Pin<=230)&&(Track_Pin>=215))//1st AYA in track no. 002
+ 1ac:	9c 01       	movw	r18, r24
+ 1ae:	27 5d       	subi	r18, 0xD7	; 215
+ 1b0:	31 09       	sbc	r19, r1
+ 1b2:	20 31       	cpi	r18, 0x10	; 16
+ 1b4:	31 05       	cpc	r19, r1
+ 1b6:	20 f4       	brcc	.+8      	; 0x1c0 <enableTrackButtons+0x40>
+	{
+		
+		playTrack(folder,0x02);
+ 1b8:	62 e0       	ldi	r22, 0x02	; 2
+ 1ba:	8c 2f       	mov	r24, r28
+ 1bc:	9d df       	rcall	.-198    	; 0xf8 <playTrack>
+ 1be:	61 c0       	rjmp	.+194    	; 0x282 <enableTrackButtons+0x102>
+	}
+	
+	else if ((Track_Pin<=790)&&(Track_Pin>=755))//2st AYA
+ 1c0:	9c 01       	movw	r18, r24
+ 1c2:	23 5f       	subi	r18, 0xF3	; 243
+ 1c4:	32 40       	sbci	r19, 0x02	; 2
+ 1c6:	24 32       	cpi	r18, 0x24	; 36
+ 1c8:	31 05       	cpc	r19, r1
+ 1ca:	20 f4       	brcc	.+8      	; 0x1d4 <enableTrackButtons+0x54>
+	{
+		playTrack(folder,0x03);
+ 1cc:	63 e0       	ldi	r22, 0x03	; 3
+ 1ce:	8c 2f       	mov	r24, r28
+ 1d0:	93 df       	rcall	.-218    	; 0xf8 <playTrack>
+ 1d2:	57 c0       	rjmp	.+174    	; 0x282 <enableTrackButtons+0x102>
+	}
+	
+	else if ((Track_Pin<=715)&&(Track_Pin>=680))// 3th AYA
+ 1d4:	9c 01       	movw	r18, r24
+ 1d6:	28 5a       	subi	r18, 0xA8	; 168
+ 1d8:	32 40       	sbci	r19, 0x02	; 2
+ 1da:	24 32       	cpi	r18, 0x24	; 36
+ 1dc:	31 05       	cpc	r19, r1
+ 1de:	20 f4       	brcc	.+8      	; 0x1e8 <enableTrackButtons+0x68>
+	{
+		playTrack(folder,0x04);
+ 1e0:	64 e0       	ldi	r22, 0x04	; 4
+ 1e2:	8c 2f       	mov	r24, r28
+ 1e4:	89 df       	rcall	.-238    	; 0xf8 <playTrack>
+ 1e6:	4d c0       	rjmp	.+154    	; 0x282 <enableTrackButtons+0x102>
+	}
+	
+	else if ((Track_Pin<=655)&&(Track_Pin>=620))// 4th AYA
+ 1e8:	9c 01       	movw	r18, r24
+ 1ea:	2c 56       	subi	r18, 0x6C	; 108
+ 1ec:	32 40       	sbci	r19, 0x02	; 2
+ 1ee:	24 32       	cpi	r18, 0x24	; 36
+ 1f0:	31 05       	cpc	r19, r1
+ 1f2:	20 f4       	brcc	.+8      	; 0x1fc <enableTrackButtons+0x7c>
+	{
+		playTrack(folder,0x05);
+ 1f4:	65 e0       	ldi	r22, 0x05	; 5
+ 1f6:	8c 2f       	mov	r24, r28
+ 1f8:	7f df       	rcall	.-258    	; 0xf8 <playTrack>
+ 1fa:	43 c0       	rjmp	.+134    	; 0x282 <enableTrackButtons+0x102>
+	}
+	
+	else if ((Track_Pin<=572)&&(Track_Pin>=540)) // 5th AYA
+ 1fc:	9c 01       	movw	r18, r24
+ 1fe:	2c 51       	subi	r18, 0x1C	; 28
+ 200:	32 40       	sbci	r19, 0x02	; 2
+ 202:	21 32       	cpi	r18, 0x21	; 33
+ 204:	31 05       	cpc	r19, r1
+ 206:	20 f4       	brcc	.+8      	; 0x210 <enableTrackButtons+0x90>
+	{
+		playTrack(folder,0x06);
+ 208:	66 e0       	ldi	r22, 0x06	; 6
+ 20a:	8c 2f       	mov	r24, r28
+ 20c:	75 df       	rcall	.-278    	; 0xf8 <playTrack>
+ 20e:	39 c0       	rjmp	.+114    	; 0x282 <enableTrackButtons+0x102>
+	}
+	//_____________cut AYAT______________
+	else if ((Track_Pin<=525)&&(Track_Pin>=490))// 1st AYA in folder no.007
+ 210:	9c 01       	movw	r18, r24
+ 212:	2a 5e       	subi	r18, 0xEA	; 234
+ 214:	31 40       	sbci	r19, 0x01	; 1
+ 216:	24 32       	cpi	r18, 0x24	; 36
+ 218:	31 05       	cpc	r19, r1
+ 21a:	20 f4       	brcc	.+8      	; 0x224 <enableTrackButtons+0xa4>
+	{
+		playTrack(folder,0x07);
+ 21c:	67 e0       	ldi	r22, 0x07	; 7
+ 21e:	8c 2f       	mov	r24, r28
+ 220:	6b df       	rcall	.-298    	; 0xf8 <playTrack>
+ 222:	2f c0       	rjmp	.+94     	; 0x282 <enableTrackButtons+0x102>
+	}
+	
+	else if ((Track_Pin<=471)&&(Track_Pin>=430))// 2
+ 224:	9c 01       	movw	r18, r24
+ 226:	2e 5a       	subi	r18, 0xAE	; 174
+ 228:	31 40       	sbci	r19, 0x01	; 1
+ 22a:	2a 32       	cpi	r18, 0x2A	; 42
+ 22c:	31 05       	cpc	r19, r1
+ 22e:	20 f4       	brcc	.+8      	; 0x238 <enableTrackButtons+0xb8>
+	{
+		playTrack(folder,0x08);
+ 230:	68 e0       	ldi	r22, 0x08	; 8
+ 232:	8c 2f       	mov	r24, r28
+ 234:	61 df       	rcall	.-318    	; 0xf8 <playTrack>
+ 236:	25 c0       	rjmp	.+74     	; 0x282 <enableTrackButtons+0x102>
+	}
+	
+	else if ((Track_Pin<=335)&&(Track_Pin>=305))// 3
+ 238:	9c 01       	movw	r18, r24
+ 23a:	21 53       	subi	r18, 0x31	; 49
+ 23c:	31 40       	sbci	r19, 0x01	; 1
+ 23e:	2f 31       	cpi	r18, 0x1F	; 31
+ 240:	31 05       	cpc	r19, r1
+ 242:	20 f4       	brcc	.+8      	; 0x24c <enableTrackButtons+0xcc>
+	{
+		playTrack(folder,0x09);
+ 244:	69 e0       	ldi	r22, 0x09	; 9
+ 246:	8c 2f       	mov	r24, r28
+ 248:	57 df       	rcall	.-338    	; 0xf8 <playTrack>
+ 24a:	1b c0       	rjmp	.+54     	; 0x282 <enableTrackButtons+0x102>
+	}
+	
+	else if ((Track_Pin<=260)&&(Track_Pin>=231))// 4
+ 24c:	9c 01       	movw	r18, r24
+ 24e:	27 5e       	subi	r18, 0xE7	; 231
+ 250:	31 09       	sbc	r19, r1
+ 252:	2e 31       	cpi	r18, 0x1E	; 30
+ 254:	31 05       	cpc	r19, r1
+ 256:	20 f4       	brcc	.+8      	; 0x260 <enableTrackButtons+0xe0>
+	{
+		playTrack(folder,0x0A);
+ 258:	6a e0       	ldi	r22, 0x0A	; 10
+ 25a:	8c 2f       	mov	r24, r28
+ 25c:	4d df       	rcall	.-358    	; 0xf8 <playTrack>
+ 25e:	11 c0       	rjmp	.+34     	; 0x282 <enableTrackButtons+0x102>
+	}
+	
+	else if ((Track_Pin<=199)&&(Track_Pin>=180))// 5
+ 260:	84 5b       	subi	r24, 0xB4	; 180
+ 262:	91 09       	sbc	r25, r1
+ 264:	44 97       	sbiw	r24, 0x14	; 20
+ 266:	20 f4       	brcc	.+8      	; 0x270 <enableTrackButtons+0xf0>
+	{
+		playTrack(folder,0x0B);
+ 268:	6b e0       	ldi	r22, 0x0B	; 11
+ 26a:	8c 2f       	mov	r24, r28
+ 26c:	45 df       	rcall	.-374    	; 0xf8 <playTrack>
+ 26e:	09 c0       	rjmp	.+18     	; 0x282 <enableTrackButtons+0x102>
+	}
+	else if (readName) //name of Surah in folder 012
+ 270:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <readName>
+ 274:	88 23       	and	r24, r24
+ 276:	29 f0       	breq	.+10     	; 0x282 <enableTrackButtons+0x102>
+	{
+	playTrack(folder,0x0C);
+ 278:	6c e0       	ldi	r22, 0x0C	; 12
+ 27a:	8c 2f       	mov	r24, r28
+ 27c:	3d df       	rcall	.-390    	; 0xf8 <playTrack>
+	readName=0;
+ 27e:	10 92 6b 00 	sts	0x006B, r1	; 0x80006b <readName>
+// 	else {//because if board installed stop any repeated tracks
+// 		stop();
+// 		loopCurrent_off(); //stop repeating
+// 		loopAll_off();
+// 		}
+}
+ 282:	cf 91       	pop	r28
+ 284:	08 95       	ret
+
+00000286 <enalbeConroleButtonsWithoutLoopAll>:
+void enalbeConroleButtonsWithoutLoopAll(void)
+{ 
+ 286:	cf 93       	push	r28
+ 288:	df 93       	push	r29
+ 28a:	00 d0       	rcall	.+0      	; 0x28c <enalbeConroleButtonsWithoutLoopAll+0x6>
+ 28c:	cd b7       	in	r28, 0x3d	; 61
+ 28e:	de b7       	in	r29, 0x3e	; 62
+	volatile uint16_t  Control_Pin = analogReadacurecy(2); //connected to AD2 control volume play,pause,loops is AD2
+ 290:	82 e0       	ldi	r24, 0x02	; 2
+ 292:	fc de       	rcall	.-520    	; 0x8c <analogReadacurecy>
+ 294:	9a 83       	std	Y+2, r25	; 0x02
+ 296:	89 83       	std	Y+1, r24	; 0x01
+
+	if ((Control_Pin<=795)&&(Control_Pin>=760))// ??? ???
+ 298:	89 81       	ldd	r24, Y+1	; 0x01
+ 29a:	9a 81       	ldd	r25, Y+2	; 0x02
+ 29c:	8c 31       	cpi	r24, 0x1C	; 28
+ 29e:	93 40       	sbci	r25, 0x03	; 3
+ 2a0:	40 f4       	brcc	.+16     	; 0x2b2 <enalbeConroleButtonsWithoutLoopAll+0x2c>
+ 2a2:	89 81       	ldd	r24, Y+1	; 0x01
+ 2a4:	9a 81       	ldd	r25, Y+2	; 0x02
+ 2a6:	88 3f       	cpi	r24, 0xF8	; 248
+ 2a8:	92 40       	sbci	r25, 0x02	; 2
+ 2aa:	18 f0       	brcs	.+6      	; 0x2b2 <enalbeConroleButtonsWithoutLoopAll+0x2c>
+	{
+		volume('d');
+ 2ac:	84 e6       	ldi	r24, 0x64	; 100
+ 2ae:	33 df       	rcall	.-410    	; 0x116 <volume>
+ 2b0:	31 c0       	rjmp	.+98     	; 0x314 <enalbeConroleButtonsWithoutLoopAll+0x8e>
+		//vol_down();
+	}
+	else if ((Control_Pin<=720)&&(Control_Pin>=680))
+ 2b2:	89 81       	ldd	r24, Y+1	; 0x01
+ 2b4:	9a 81       	ldd	r25, Y+2	; 0x02
+ 2b6:	81 3d       	cpi	r24, 0xD1	; 209
+ 2b8:	92 40       	sbci	r25, 0x02	; 2
+ 2ba:	40 f4       	brcc	.+16     	; 0x2cc <enalbeConroleButtonsWithoutLoopAll+0x46>
+ 2bc:	89 81       	ldd	r24, Y+1	; 0x01
+ 2be:	9a 81       	ldd	r25, Y+2	; 0x02
+ 2c0:	88 3a       	cpi	r24, 0xA8	; 168
+ 2c2:	92 40       	sbci	r25, 0x02	; 2
+ 2c4:	18 f0       	brcs	.+6      	; 0x2cc <enalbeConroleButtonsWithoutLoopAll+0x46>
+	{
+		volume('u');
+ 2c6:	85 e7       	ldi	r24, 0x75	; 117
+ 2c8:	26 df       	rcall	.-436    	; 0x116 <volume>
+ 2ca:	24 c0       	rjmp	.+72     	; 0x314 <enalbeConroleButtonsWithoutLoopAll+0x8e>
+		//vol_up();
+	}
+	else if ((Control_Pin<=585)&&(Control_Pin>=540))
+ 2cc:	89 81       	ldd	r24, Y+1	; 0x01
+ 2ce:	9a 81       	ldd	r25, Y+2	; 0x02
+ 2d0:	8a 34       	cpi	r24, 0x4A	; 74
+ 2d2:	92 40       	sbci	r25, 0x02	; 2
+ 2d4:	40 f4       	brcc	.+16     	; 0x2e6 <enalbeConroleButtonsWithoutLoopAll+0x60>
+ 2d6:	89 81       	ldd	r24, Y+1	; 0x01
+ 2d8:	9a 81       	ldd	r25, Y+2	; 0x02
+ 2da:	8c 31       	cpi	r24, 0x1C	; 28
+ 2dc:	92 40       	sbci	r25, 0x02	; 2
+ 2de:	18 f0       	brcs	.+6      	; 0x2e6 <enalbeConroleButtonsWithoutLoopAll+0x60>
+	{
+		loopCurrent_off();
+ 2e0:	4a df       	rcall	.-364    	; 0x176 <loopCurrent_off>
+		pause();
+ 2e2:	14 df       	rcall	.-472    	; 0x10c <pause>
+ 2e4:	17 c0       	rjmp	.+46     	; 0x314 <enalbeConroleButtonsWithoutLoopAll+0x8e>
+		
+	}
+		else if ((Control_Pin<=353)&&(Control_Pin>=305))
+ 2e6:	89 81       	ldd	r24, Y+1	; 0x01
+ 2e8:	9a 81       	ldd	r25, Y+2	; 0x02
+ 2ea:	82 36       	cpi	r24, 0x62	; 98
+ 2ec:	91 40       	sbci	r25, 0x01	; 1
+ 2ee:	38 f4       	brcc	.+14     	; 0x2fe <enalbeConroleButtonsWithoutLoopAll+0x78>
+ 2f0:	89 81       	ldd	r24, Y+1	; 0x01
+ 2f2:	9a 81       	ldd	r25, Y+2	; 0x02
+ 2f4:	81 33       	cpi	r24, 0x31	; 49
+ 2f6:	91 40       	sbci	r25, 0x01	; 1
+ 2f8:	10 f0       	brcs	.+4      	; 0x2fe <enalbeConroleButtonsWithoutLoopAll+0x78>
+		{
+			
+			play();
+ 2fa:	03 df       	rcall	.-506    	; 0x102 <play>
+ 2fc:	0b c0       	rjmp	.+22     	; 0x314 <enalbeConroleButtonsWithoutLoopAll+0x8e>
+			
+		}
+	else if ((Control_Pin<=290)&&(Control_Pin>=240))
+ 2fe:	89 81       	ldd	r24, Y+1	; 0x01
+ 300:	9a 81       	ldd	r25, Y+2	; 0x02
+ 302:	83 32       	cpi	r24, 0x23	; 35
+ 304:	91 40       	sbci	r25, 0x01	; 1
+ 306:	30 f4       	brcc	.+12     	; 0x314 <enalbeConroleButtonsWithoutLoopAll+0x8e>
+ 308:	89 81       	ldd	r24, Y+1	; 0x01
+ 30a:	9a 81       	ldd	r25, Y+2	; 0x02
+ 30c:	80 3f       	cpi	r24, 0xF0	; 240
+ 30e:	91 05       	cpc	r25, r1
+ 310:	08 f0       	brcs	.+2      	; 0x314 <enalbeConroleButtonsWithoutLoopAll+0x8e>
+	{
+		loopCurrent_on();
+ 312:	2c df       	rcall	.-424    	; 0x16c <loopCurrent_on>
+	}
+	
+	
+}
+ 314:	0f 90       	pop	r0
+ 316:	0f 90       	pop	r0
+ 318:	df 91       	pop	r29
+ 31a:	cf 91       	pop	r28
+ 31c:	08 95       	ret
+
+0000031e <main>:
+ 
+int main(void)
+{
+	 uint8_t flag = 0;
+//******************UART*************************//
+	USART_Init(MYUBRR);
+ 31e:	85 e0       	ldi	r24, 0x05	; 5
+ 320:	90 e0       	ldi	r25, 0x00	; 0
+ 322:	9d de       	rcall	.-710    	; 0x5e <USART_Init>
+
+	//*********LED*********
+	DDRB|=(1<<PB1);//output
+ 324:	b9 9a       	sbi	0x17, 1	; 23
+	DDRB|=(1<<PB2);//output
+ 326:	ba 9a       	sbi	0x17, 2	; 23
+	PORTB&=~(1<<PB1);  //LOW connected to RED LED pin and GREEN connected directly to ground (state:RED)
+ 328:	c1 98       	cbi	0x18, 1	; 24
+	PORTB|=(1<<PB2);	//high connected to green pin
+ 32a:	c2 9a       	sbi	0x18, 2	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 32c:	2f e3       	ldi	r18, 0x3F	; 63
+ 32e:	8d e0       	ldi	r24, 0x0D	; 13
+ 330:	93 e0       	ldi	r25, 0x03	; 3
+ 332:	21 50       	subi	r18, 0x01	; 1
+ 334:	80 40       	sbci	r24, 0x00	; 0
+ 336:	90 40       	sbci	r25, 0x00	; 0
+ 338:	e1 f7       	brne	.-8      	; 0x332 <main+0x14>
+ 33a:	00 c0       	rjmp	.+0      	; 0x33c <main+0x1e>
+ 33c:	00 00       	nop
+	_delay_ms(1000);
+	//welcome meessage
+	playTrack(0x01,0x02);
+ 33e:	62 e0       	ldi	r22, 0x02	; 2
+ 340:	81 e0       	ldi	r24, 0x01	; 1
+ 342:	da de       	rcall	.-588    	; 0xf8 <playTrack>
+	while (1){
+		readName =1;
+ 344:	c1 e0       	ldi	r28, 0x01	; 1
+ 346:	c0 93 6b 00 	sts	0x006B, r28	; 0x80006b <readName>
+		flag=0;
+ 	PORTB&=~(1<<PB1);  //LOW connected to RED LED pin and GREEN connected directly to ground (state:RED)
+ 34a:	c1 98       	cbi	0x18, 1	; 24
+ 	PORTB|=(1<<PB2);	//high connected to green pin
+ 34c:	c2 9a       	sbi	0x18, 2	; 24
+//  {
+// 	_delay_ms(1000);//wait for mp3 initialization
+// 	welcome=0;
+// 	playTrack(0x01,0x02);
+//  }
+Board_Pin = analogReadacurecy(0);
+ 34e:	80 e0       	ldi	r24, 0x00	; 0
+ 350:	9d de       	rcall	.-710    	; 0x8c <analogReadacurecy>
+ 352:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <__data_end+0x1>
+ 356:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__data_end>
+
+//***check connected board
+if((Board_Pin<=255)&&(Board_Pin>=235))//Al_Masad R=3.3K
+ 35a:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__data_end>
+ 35e:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__data_end+0x1>
+ 362:	8f 3f       	cpi	r24, 0xFF	; 255
+ 364:	91 05       	cpc	r25, r1
+ 366:	09 f0       	breq	.+2      	; 0x36a <main+0x4c>
+ 368:	38 f4       	brcc	.+14     	; 0x378 <main+0x5a>
+ 36a:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__data_end>
+ 36e:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__data_end+0x1>
+ 372:	8b 3e       	cpi	r24, 0xEB	; 235
+ 374:	91 05       	cpc	r25, r1
+ 376:	78 f4       	brcc	.+30     	; 0x396 <main+0x78>
+ {   
+   flag = 1;
+ }
+else if ((Board_Pin<=335)&&(Board_Pin>=310))//?Al_Ikhlas R=2.2k
+ 378:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__data_end>
+ 37c:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__data_end+0x1>
+ 380:	80 35       	cpi	r24, 0x50	; 80
+ 382:	91 40       	sbci	r25, 0x01	; 1
+ 384:	00 f7       	brcc	.-64     	; 0x346 <main+0x28>
+ 386:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__data_end>
+ 38a:	90 91 6d 00 	lds	r25, 0x006D	; 0x80006d <__data_end+0x1>
+ 38e:	86 33       	cpi	r24, 0x36	; 54
+ 390:	91 40       	sbci	r25, 0x01	; 1
+ 392:	58 f4       	brcc	.+22     	; 0x3aa <main+0x8c>
+ 394:	d8 cf       	rjmp	.-80     	; 0x346 <main+0x28>
+   {
+     flag = 2;
+   }
+while (flag == 1){
+		PORTB&=~(1<<PB2);PORTB|=(1<<PB1);//(state:green)
+ 396:	c2 98       	cbi	0x18, 2	; 24
+ 398:	c1 9a       	sbi	0x18, 1	; 24
+		enableTrackButtons(0x05);//Al_Masad R=3.3K
+ 39a:	85 e0       	ldi	r24, 0x05	; 5
+ 39c:	f1 de       	rcall	.-542    	; 0x180 <enableTrackButtons>
+		enalbeConroleButtonsWithoutLoopAll();
+ 39e:	73 df       	rcall	.-282    	; 0x286 <enalbeConroleButtonsWithoutLoopAll>
+		if (analogReadacurecy(0)==0)
+ 3a0:	80 e0       	ldi	r24, 0x00	; 0
+ 3a2:	74 de       	rcall	.-792    	; 0x8c <analogReadacurecy>
+ 3a4:	89 2b       	or	r24, r25
+ 3a6:	79 f2       	breq	.-98     	; 0x346 <main+0x28>
+ 3a8:	f6 cf       	rjmp	.-20     	; 0x396 <main+0x78>
+			flag=0;
+		}
+	}
+
+while (flag == 2){
+			PORTB&=~(1<<PB2);PORTB|=(1<<PB1);//(state:green)
+ 3aa:	c2 98       	cbi	0x18, 2	; 24
+ 3ac:	c1 9a       	sbi	0x18, 1	; 24
+			enableTrackButtons(0x04);//Al_Ikhlas R=2.2k
+ 3ae:	84 e0       	ldi	r24, 0x04	; 4
+ 3b0:	e7 de       	rcall	.-562    	; 0x180 <enableTrackButtons>
+			enalbeConroleButtonsWithoutLoopAll();
+ 3b2:	69 df       	rcall	.-302    	; 0x286 <enalbeConroleButtonsWithoutLoopAll>
+			if (analogReadacurecy(0)==0)
+ 3b4:	80 e0       	ldi	r24, 0x00	; 0
+ 3b6:	6a de       	rcall	.-812    	; 0x8c <analogReadacurecy>
+ 3b8:	89 2b       	or	r24, r25
+ 3ba:	b9 f7       	brne	.-18     	; 0x3aa <main+0x8c>
+ 3bc:	c4 cf       	rjmp	.-120    	; 0x346 <main+0x28>
+
+000003be <_exit>:
+ 3be:	f8 94       	cli
+
+000003c0 <__stop_program>:
+ 3c0:	ff cf       	rjmp	.-2      	; 0x3c0 <__stop_program>
