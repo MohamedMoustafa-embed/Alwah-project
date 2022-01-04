@@ -163,6 +163,7 @@ void print_adc(uint16_t value){//take pin number you want to read as 0,1,2,3,4,5
 	USART_Transmit('\n');
 }
 //*********************ADC********************
+//blocking
 uint16_t analogRead(uint8_t Pin_num){//take variable of ADC reading
 	
 	ADCSRA|=(1<<ADEN); //Enable ADC
