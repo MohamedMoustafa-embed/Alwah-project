@@ -1,0 +1,28 @@
+Partlist exported from M:/Mohamed/1.Mohamed Projects/Alwah project/مشروع الواح/PCB/V2 - pcb layout changed/untitled.sch at 2/22/2022 7:14 PM
+
+Qty Value                  Device                 Package                    Parts                                     Description                          MF MPN OC_FARNELL OC_NEWARK POPULARITY SPICEPREFIX
+1                          CON_JACK               DCJ0303                    CHARGING-SOCKET                           DC POWER JACK                               unknown    unknown                         
+2                          LED0805                CHIPLED_0805               GREEN-LED, RED-LED                        LED                                                                                    
+1                          PINHD-1X8              1X08                       PROG                                      PIN HEADER                                                       67                    
+1                          TRIM_EU-B25U           B25U                       R9                                        POTENTIOMETER                                                    0                     
+1   1.2k                   RESISTOR_0805          _0805                      R4                                        Resistors                                                                              
+1   100ohm                 R-US_0204/7            0204/7                     R5                                        RESISTOR, American symbol                                        48         R          
+1   10k                    R-US_0204/7            0204/7                     R1                                        RESISTOR, American symbol                                        48         R          
+3   10k                    RES-7                  0204/7                     KEYPADS, KEYPADS1, KEYPADS2                                                                                                      
+4   10uf                   CAP_CERAMIC0805        0805                       C1, C2, C3, C4                            Ceramic Capacitors                                                                     
+2   1k                     R-US_0204/7            0204/7                     R7, R8                                    RESISTOR, American symbol                                        48         R          
+2   1k                     RESISTOR_0805          _0805                      R2, R3                                    Resistors                                                                              
+1   2.2k                   R-US_M0805             M0805                      R6                                        RESISTOR, American symbol                                        45         R          
+1   22uF                   CPOL-USE2,5-6E         E2,5-6E                    C5                                        POLARIZED CAPACITOR, American symbol                             1          C          
+1   22uH                   L-USL1812              L1812                      L1                                        INDUCTOR, American symbol                                        3          L          
+1   22uf                   CPOL-USE2,5-6E         E2,5-6E                    C6                                        POLARIZED CAPACITOR, American symbol                             1          C          
+1   5.1v                   DIODE-ZENER            SMADIODE                   D2                                        Zener Diode                                                                            
+1   BAT81                  BAT81                  DO34-7                     D1                                        DIODE                                                            5                     
+4   JST-XH-02-PIN-LONG-PAD JST-XH-02-PIN-LONG-PAD JST-XH-02-PACKAGE-LONG-PAD BATTARY-3.7V, BUT1, POWER-SWITCH, SPEAKER JST XH Connector 2 Pin                                                                 
+1   JST-XH-03-PIN-LONG-PAD JST-XH-03-PIN-LONG-PAD JST-XH-03-PACKAGE-LONG-PAD RG-LED                                    JST XH Connector 2 Pin                                                                 
+1   JST-XH-04-PIN-LONG-PAD JST-XH-04-PIN-LONG-PAD JST-XH-04-PACKAGE-LONG-PAD X1                                        JST XH Connector 2 Pin                                                                 
+1   MEGA8-P                MEGA8-P                DIL28-3                    IC1                                       MICROCONTROLLER                             unknown    unknown   17                    
+1   MP3_MODULE             MP3_MODULE             MP3_MODULE                 U$2                                                                                                                              
+1   MT3608SOT23-6          MT3608SOT23-6          SOT23-6                    U$6                                       MT3608                                                                                 
+1   RES-7                  RES-7                  0204/7                     100OHM                                                                                                                           
+1   TP4056                 TP4056                 SOP-8                      IC3                                                                                                                              
